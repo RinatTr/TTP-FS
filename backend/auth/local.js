@@ -1,14 +1,12 @@
 const passport = require("passport");
-//check folder path
+
 const LocalStrategy = require("passport-local").Strategy;
 const init = require("./passport");
 const helpers = require("./helpers");
 const {db} = require("../db/queries/index.js")
 
 passport.use(
-
   new LocalStrategy((username, password, done) => {
-
     db.one("SELECT * FROM users WHERE username = ${username}", {
       username: username
     })

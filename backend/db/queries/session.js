@@ -22,7 +22,7 @@ const logoutUser = (req, res, next) => {
 }
 
 const loginUser = (req, res)=> {
-  res.json(req.user);
+  res.json("login success: "+req.user.username);
 }
 
 const isLoggedIn = (req, res) => {
