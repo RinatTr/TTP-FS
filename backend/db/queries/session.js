@@ -3,8 +3,7 @@ const authHelpers = require("../../auth/helpers");
 
 const createUser = (req, res, next) => {
   const hash = authHelpers.createHash(req.body.password);
-
-  db.one('INSERT INTO users(username, password_digest, email) VALUES(${username}, ${password_digest}, ${email})',
+  db.none('INSERT INTO users(username, password_digest, email) VALUES(${username}, ${password_digest}, ${email})',
     { username: req.body.username, password_digest: hash, email:req.body.email})
     .then(()=> {
       res.status(200).json({

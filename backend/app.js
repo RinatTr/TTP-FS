@@ -39,7 +39,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 //route usage
 app.get('/', (req,res) => {res.send('welcome to stockify')})
-app.use('/users', usersRouter);
+app.use('/api/users', usersRouter);
 app.use('/api/session', sessionRouter);
 
 // catch 404 and forward to error handler
