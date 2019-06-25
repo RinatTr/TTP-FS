@@ -14,3 +14,5 @@ prefix: `http://api.iextrading.com/1.0`
 last sold price: `/tops/last?symbols=w,crm`
 </br>
 open price: `/stock/symbol/ohlc`
+</br>
+all symbols: `/ref-data/symbols`
