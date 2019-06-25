@@ -7,7 +7,7 @@ const logger = require('morgan');
 
 //auth
 const session = require('express-session');
-const passport = require('./auth/local')
+const passport = require('./auth/local');
 
 //route imports
 const usersRouter = require('./routes/users');
@@ -37,6 +37,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 //route usage
+app.get('/', (req,res) => {res.send('welcome to stockify')})
 app.use('/users', usersRouter);
 
 
