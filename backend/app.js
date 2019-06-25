@@ -11,6 +11,7 @@ const passport = require('./auth/local');
 
 //route imports
 const usersRouter = require('./routes/users');
+const sessionRouter = require('./routes/session');
 
 const app = express();
 
@@ -39,8 +40,7 @@ app.use(passport.session());
 //route usage
 app.get('/', (req,res) => {res.send('welcome to stockify')})
 app.use('/users', usersRouter);
-
-
+app.use('/api/session', sessionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

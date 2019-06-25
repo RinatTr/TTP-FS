@@ -6,7 +6,7 @@ const {
       loginUser,
       isLoggedIn,
       logoutUser
-      } = require("../db/queries/sessionQueries.js");
+      } = require("../db/queries/session.js");
 
 const passport = require("../auth/local");
 const { loginRequired } = require("../auth/helpers");
