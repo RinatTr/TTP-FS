@@ -12,12 +12,15 @@ passport.use(
     })
       .then(user => {
         if (!helpers.comparePass(password, user.password_digest)) {
+          //invalid password
           return done(null, false);
         } else {
+          //successful login
           return done(null, user);
         }
       })
       .catch(err => {
+        //if incorrect username:
         return done(err);
       });
   })
