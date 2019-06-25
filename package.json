@@ -1,0 +1,22 @@
+{
+  "name": "ttp-fs",
+  "version": "1.0.0",
+  "description": "Tech Talent Pipeline coding challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RinatTr/TTP-FS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RinatTr/TTP-FS/issues"
+  },
+  "homepage": "https://github.com/RinatTr/TTP-FS#readme",
+  "dependencies": {
+    "express-generator": "^4.16.1"
+  }
+}
