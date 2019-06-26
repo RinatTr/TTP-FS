@@ -1,17 +1,16 @@
 import Transactions from "./Transactions.js";
 import { connect } from "react-redux";
-// import actions
-
+import { getTransactions } from '../../actions/TransactionsActions.js'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    //..props
+    transactions: state.transactions
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    // dispatch actions
+    getTransactions: (userId) => dispatch(getTransactions(userId))
   };
 };
 

@@ -7,7 +7,12 @@ export default class Transactions extends Component {
 
     }
   }
+
+  componentDidMount() {
+    this.props.getTransactions(3)
+  }
   render() {
+    console.log(this.props);
     return (
       <React.Fragment>
       "display transactions"
