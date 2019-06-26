@@ -3,14 +3,14 @@ const {db} = require('../db/queries/index.js')
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.username);
   });
-  passport.deserializeUser((userId, done) => {
-    db.one("SELECT * FROM users WHERE id = ${userId}", {
-      userId: userId
+  passport.deserializeUser((username, done) => {
+    db.one("SELECT * FROM users WHERE username = ${username}", {
+      username: username
     })
       .then(user => {
-        done(null, user.id);
+        done(null, user.username);
       })
       .catch(err => {
         done(err, null);
