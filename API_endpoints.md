@@ -13,3 +13,7 @@ POST `/api/session/login`
 POST `/api/session/logout`
 </br>
 GET `/api/session/isLoggedIn`
+
+**Transactions**
+</br>
+GET `/api/transactions/:userId`
