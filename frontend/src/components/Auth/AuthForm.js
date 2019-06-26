@@ -6,8 +6,8 @@ class AuthForm extends Component {
   constructor() {
     super();
     this.state = {
-        username: "",
-        password: "",
+        username: "test",
+        password: 1234,
         email: ""
     };
   }
