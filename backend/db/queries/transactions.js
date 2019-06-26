@@ -19,4 +19,23 @@ const getAllTransactionsPerUser = (req, res, next) => {
 //1. update balance for user,
 //2. seed new transaction.
 
-module.exports = { getAllTransactionsPerUser }
+
+const newTransaction = (req, res, next) => {
+  db.tx(t => {
+          return t.batch([
+              t.none('UPDATE users SET balance = $2 WHERE id = $1 ', [req.body.userId, req.body.newBalance]),
+              t.none('INSERT INTO transactions(user_id, ticker_symbol, shares, sale_price, type) VALUES(${userId}, ${symbol}, ${shares}, ${value}, ${type})', req.body)
+          ]);
+      })
+      .then(data => {
+        res.status(200).json({
+          status:"sucess",
+          message:"updated balance and added new transaction for user",
+        })
+      })
+      .catch(err => { next(err)})
+}
+
+
+
+module.exports = { getAllTransactionsPerUser, newTransaction }
