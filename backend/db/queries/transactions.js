@@ -36,6 +36,17 @@ const newTransaction = (req, res, next) => {
       .catch(err => { next(err)})
 }
 
+const getTotalShares = (req, res, next) => {
+  let userId = req.params.userId;
+  db.any('SELECT ticker_symbol, SUM(shares) AS total_shares FROM transactions WHERE user_id = $1 GROUP BY ticker_symbol', [userId])
+    .then(data => {
+      res.status(200).json({
+        status: "success",
+        message: "received aggregated shares per user",
+        data
+      })
+    })
+    .catch(err => { next (err)})
+}
 
-
-module.exports = { getAllTransactionsPerUser, newTransaction }
+module.exports = { getAllTransactionsPerUser, newTransaction, getTotalShares }
