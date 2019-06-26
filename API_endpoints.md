@@ -16,6 +16,8 @@ GET `/api/session/isLoggedIn`
 
 **Transactions**
 </br>
+GET `/api/transactions/:userId/total`
+</br>
 GET `/api/transactions/:userId`
 </br>
 POST `/api/transactions/:userId`

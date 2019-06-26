@@ -10,7 +10,7 @@ export default class Transactions extends Component {
   }
 
   componentDidMount() {
-    this.props.getTransactions(3)
+    this.props.getTransactions(1)
   }
   render() {
     let transactionsList = this.props.transactions.map((el,i) => <Item key={i} transaction={el} />)
