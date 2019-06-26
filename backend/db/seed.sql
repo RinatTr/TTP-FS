@@ -17,6 +17,6 @@ CREATE TABLE transactions (
   ticker_symbol VARCHAR,
   shares INT,
   time_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  sale_price INT,
+  sale_price DECIMAL (18, 2),
   type VARCHAR
 );
