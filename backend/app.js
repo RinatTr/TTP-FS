@@ -37,6 +37,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 //route usage
 app.get('/', (req,res) => {res.send('welcome to stockify')})
 app.use('/api/users', usersRouter);
