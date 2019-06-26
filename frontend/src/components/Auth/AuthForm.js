@@ -31,11 +31,36 @@ class AuthForm extends Component {
 
     return (
       isLoggedIn
-      ? <Redirect to="/all" />
+      ? <Redirect to="/" />
       : <React.Fragment>
            <div className="auth-wrapper">
                <div className="auth-form-content">
                  <form onSubmit={this.handleSubmit}>
+                 <input
+                   type="username"
+                   value={username}
+                   name="username"
+                   placeholder="username"
+                   onChange={this.handleChange}
+                   required
+                  />
+                 <input
+                   type="password"
+                   value={password}
+                   name="password"
+                   placeholder="password"
+                   onChange={this.handleChange}
+                   required
+                  />
+                { isPathLogin ? "" : <input
+                   type="email"
+                   value={email}
+                   name="email"
+                   placeholder="email"
+                   onChange={this.handleChange}
+                   required
+                  /> }
+                 <button type="submit">{isPathLogin ? "SIGN IN" : "SIGN UP"}</button>
                  </form>
                </div>
              </div>
