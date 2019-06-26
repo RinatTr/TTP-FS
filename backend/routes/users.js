@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET users listing. */
-router.get('/', (req, res, next) => {
-  res.send('respond...');
-});
+const { getUser } = require('../db/queries/users.js');
+const { loginRequired } = require("../auth/helpers");
+
+
+router.get('/:username', getUser)
 
 module.exports = router;

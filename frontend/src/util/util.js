@@ -1,4 +1,6 @@
 import axios from 'axios';
+//User
+export const getUser = (username) => axios.get(`/api/users/${username}`)
 
 //Auth
 export const createUser = (bodyObj) => axios.post("/api/session/new", bodyObj)

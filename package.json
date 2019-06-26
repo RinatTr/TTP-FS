@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/RinatTr/TTP-FS#readme",
   "dependencies": {
+    "create-react-app": "^3.0.1",
     "express-generator": "^4.16.1"
   }
 }
