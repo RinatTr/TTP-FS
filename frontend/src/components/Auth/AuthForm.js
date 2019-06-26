@@ -27,9 +27,11 @@ class AuthForm extends Component {
 
     if (isLogin) {
       this.props.loginUser(userLogin)
+      //redirect here..
     } else {
       this.props.signUpUser(newUser)
       this.props.loginUser(userLogin)
+      //redirect here..
     }
   }
 
