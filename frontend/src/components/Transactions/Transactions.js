@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Item } from './Item.js';
 
 export default class Transactions extends Component {
   constructor(){
@@ -13,9 +14,10 @@ export default class Transactions extends Component {
   }
   render() {
     console.log(this.props);
+    // let transactionsList = this.props.transactions.map(el => <Item transaction={el} />)
     return (
       <React.Fragment>
-      "display transactions"
+
       </React.Fragment>
     )
   }
