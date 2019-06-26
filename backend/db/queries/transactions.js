@@ -2,7 +2,7 @@ const { db } = require('./index.js');
 
 const getAllTransactionsPerUser = (req, res, next) => {
   let userId = req.params.userId;
-  db.any("SELECT * FROM transactions WHERE user_id=$1",[userId])
+  db.any("SELECT * FROM transactions WHERE user_id=$1 ORDER BY time_stamp DESC",[userId])
     .then(data => {
       res.status(200).json({
         status:"sucess",
