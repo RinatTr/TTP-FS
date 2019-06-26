@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET transactions listing. */
-router.get('/', (req, res, next) => {
-  res.send('respond with a resource');
-});
+const { getAllTransactionsPerUser } = require('../db/queries/transactions.js');
+const { loginRequired } = require('../auth/helpers.js');
+
+router.get('/user/:userId',loginRequired, getAllTransactionsPerUser);
 
 module.exports = router;
