@@ -6,6 +6,7 @@ export default class Portfolio extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <React.Fragment>
         "portfolio"
