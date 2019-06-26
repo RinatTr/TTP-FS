@@ -13,11 +13,10 @@ export default class Transactions extends Component {
     this.props.getTransactions(3)
   }
   render() {
-    console.log(this.props);
-    // let transactionsList = this.props.transactions.map(el => <Item transaction={el} />)
+    let transactionsList = this.props.transactions.map((el,i) => <Item key={i} transaction={el} />)
     return (
       <React.Fragment>
-
+        {transactionsList}
       </React.Fragment>
     )
   }
