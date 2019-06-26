@@ -20,6 +20,17 @@ class AuthForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    let { username, password, email } = this.state;
+    let newUser = { username, password, email }
+    let userLogin = { username, password }
+    let isLogin = ( this.props.match.path === "/auth/login" )
+
+    if (isLogin) {
+      this.props.loginUser(userLogin)
+    } else {
+      this.props.signUpUser(newUser)
+      this.props.loginUser(userLogin)
+    }
   }
 
   render() {
