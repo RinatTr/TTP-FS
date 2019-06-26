@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { getTransactions } from '../../actions/TransactionsActions.js'
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
   return {
     transactions: state.transactions
   };
