@@ -7,11 +7,15 @@ export default class Portfolio extends Component {
   constructor() {
     super()
     this.state = {
-      shares: []
+      shares: [],
+      update: false
     }
   }
-  componentDidUpdate(prevProps) {
-    if (this.props.loggedUser !== prevProps.loggedUser) {
+  componentDidMount() {
+    this.setState({update: true})
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.loggedUser !== prevProps.loggedUser || this.state.update !== prevState.update && this.props.loggedUser) {
       Util.getTotalShares(this.props.loggedUser.id)
         .then(res => {
           let shares = res.data.data
