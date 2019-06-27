@@ -20,5 +20,5 @@ all symbols: `/ref-data/symbols`
 
 todo:
 // add styling
-
-//add sell functionality
+// move nav bar to upper right
+// add h1's
