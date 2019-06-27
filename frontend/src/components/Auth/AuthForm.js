@@ -74,6 +74,7 @@ class AuthForm extends Component {
                   /> }
                  <button type="submit">{isPathLogin ? "SIGN IN" : "SIGN UP"}</button>
                  </form>
+                 { this.props.authError ? <p>* username and/or email already exist</p> : null}
                </div>
              </div>
        </React.Fragment>
