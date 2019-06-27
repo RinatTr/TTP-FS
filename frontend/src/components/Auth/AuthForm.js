@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import icon from '../../assets/logo.png'
 import '../../css/AuthForm.css'
 
 class AuthForm extends Component {
@@ -47,6 +48,10 @@ class AuthForm extends Component {
       : <React.Fragment>
            <div className="auth-wrapper">
                <div className="auth-form-content">
+                 <div className="title">
+                   {isPathLogin ? <img alt="icon" src={icon} /> : null }
+                   {isPathLogin ?<h2>Login</h2> : <><h4>Join the stock market. Create a Stockify account today.</h4></>}
+                  </div>
                  <form onSubmit={this.handleSubmit}>
                  <input
                    type="username"
@@ -72,7 +77,7 @@ class AuthForm extends Component {
                    onChange={this.handleChange}
                    required
                   /> }
-                 <button type="submit">{isPathLogin ? "SIGN IN" : "SIGN UP"}</button>
+                 <button type="submit">{isPathLogin ? "LOG IN" : "SIGN UP"}</button>
                  </form>
                  { authError ? <span>{authError.display}</span> : null}
                </div>

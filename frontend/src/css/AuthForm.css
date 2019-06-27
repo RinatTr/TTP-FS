@@ -1,8 +1,7 @@
 .auth-wrapper {
   display: flex;
   flex-direction: row;
-  width: 40vw;
-  height: 460px;
+  width: 460px;
   justify-content: center;
   align-items: center;
   text-align: left;
@@ -31,8 +30,14 @@
   font-weight: 700px;
 }
 
-.auth-form-content h1 {
-  font-size: 18px;
+.auth-form-content h2, h4 {
+  color: #292C34;
+  margin-left: 30px;
+}
+
+.auth-form-content img {
+  height: 140px;
+  border-radius: 48%;
 }
 
 .auth-form-content button {
@@ -49,6 +54,8 @@
   color: red;
 }
 
-.auth-form-content hr {
-  margin: 20px 0px 20px 0px ;
+.title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
