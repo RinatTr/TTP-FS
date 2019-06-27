@@ -24,9 +24,9 @@ export default class Navbar extends Component {
           <a onClick={this.handleClick}>Logout</a>
         </div>
       : <div>
-          <Link to="/auth/login">login</Link>
+          <Link to="/auth/login">Login</Link>
             {` | `}
-          <Link to="/auth/signup">signup</Link>
+          <Link to="/auth/signup">Signup</Link>
         </div>
       }
     </nav>
