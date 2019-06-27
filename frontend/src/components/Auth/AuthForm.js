@@ -27,19 +27,20 @@ class AuthForm extends Component {
 
     if (isLogin) {
       this.props.loginUser(userLogin)
-      //redirect here..
     } else {
       this.props.signUpUser(newUser)
-      this.props.loginUser(userLogin)
-      //redirect here..
+        .then(() => {
+          if (!this.props.authError) {
+            this.props.loginUser(userLogin)
+          }
+        })
     }
   }
 
   render() {
     let { username, password, email } = this.state;
-    let { loggedUser } = this.props;
+    let { loggedUser, authError } = this.props;
     let isPathLogin = (this.props.match.path === "/auth/login");
-
     return (
       loggedUser
       ? <Redirect to="/" />

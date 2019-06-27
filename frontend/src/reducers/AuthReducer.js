@@ -8,7 +8,7 @@ const AuthReducer = (oldState = {}, action) => {
     case LOGIN:
       return { loggedUser: action.loggedUser}
     case RECEIVE_ERROR:
-      return { error: action.error}
+      return { error: action}
     default:
       return oldState
   }
