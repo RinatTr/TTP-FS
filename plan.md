@@ -16,9 +16,3 @@ last sold price: `/tops/last?symbols=w,crm`
 open price: `/stock/symbol/ohlc`
 </br>
 all symbols: `/ref-data/symbols`
-
-
-todo:
-// add styling
-// move nav bar to upper right
-// add h1's

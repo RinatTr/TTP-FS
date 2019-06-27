@@ -75,3 +75,7 @@ h4 {
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
 }
+
+img {
+  border-radius: 48%;
+}

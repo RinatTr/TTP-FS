@@ -63,7 +63,7 @@ export default class TransactionForm extends Component {
     return(
       <React.Fragment>
         <h1>Make a Purchase</h1>
-        <p>Your Balance: {loggedUser ? loggedUser.balance : null}</p>
+        <p>Your Balance: ${loggedUser ? loggedUser.balance : null}</p>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
