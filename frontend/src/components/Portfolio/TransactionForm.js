@@ -8,9 +8,10 @@ export default class TransactionForm extends Component {
     this.state = {
       symbol: "",
       amount: 0,
-      isInvalidSym: false,
       lastSold: 0,
-      isInsufficient: false
+      isInvalidSym: false,
+      isInsufficient: false,
+      isInvalidAmount: false
     }
   }
   handleChange = (e) => {
@@ -25,16 +26,17 @@ export default class TransactionForm extends Component {
     Util.getLastSoldPrice(symbol).then(res => {
       this.setState({
         isInvalidSym: res.data[0] ? false : true,
-        lastSold: res.data[0] ? res.data[0].price : 0
+        lastSold: res.data[0] ? res.data[0].price : 0,
+        isInvalidAmount: (amount % 1 || amount <= 0) ? true : false
       }, this.buyShares)
     })
   }
 
   buyShares = () => {
-    let { amount, symbol, lastSold, isInvalidSym } = this.state;
+    let { amount, symbol, lastSold, isInvalidSym, isInvalidAmount } = this.state;
     let { loggedUser } = this.props;
     let newBalance = loggedUser.balance - (amount * lastSold);
-    if (newBalance > 0 && !isInvalidSym) {
+    if (newBalance > 0 && !isInvalidSym && !isInvalidAmount) {
       let bodyObj = {
         userId: loggedUser.id,
         symbol: symbol.toUpperCase(),
@@ -48,7 +50,7 @@ export default class TransactionForm extends Component {
           this.setState({ isInsufficient: false })
           window.location.reload();
         })
-    } else if (isInvalidSym) {
+    } else if (isInvalidSym || isInvalidAmount) {
       return;
     } else {
       this.setState({ isInsufficient: true })
@@ -56,7 +58,7 @@ export default class TransactionForm extends Component {
   }
 
   render() {
-    let { symbol, amount, isInsufficient, isInvalidSym } = this.state;
+    let { symbol, amount, isInsufficient, isInvalidSym, isInvalidAmount } = this.state;
     let { loggedUser } = this.props;
     return(
       <React.Fragment>
@@ -82,6 +84,7 @@ export default class TransactionForm extends Component {
         </form>
         {isInsufficient ? "* Insufficient balance" : null}
         {isInvalidSym ? "* Invalid symbol" : null}
+        {isInvalidAmount ? "* Invalid amount" : null}
       </React.Fragment>
     )
   }

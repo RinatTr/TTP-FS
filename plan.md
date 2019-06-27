@@ -16,3 +16,12 @@ last sold price: `/tops/last?symbols=w,crm`
 open price: `/stock/symbol/ohlc`
 </br>
 all symbols: `/ref-data/symbols`
+
+
+todo:
+// whole number validation
+// add color comparison
+// fix signup
+// add styling
+
+//add sell functionality
