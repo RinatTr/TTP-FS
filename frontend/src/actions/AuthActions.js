@@ -19,11 +19,12 @@ export const login = loggedUser => {
   }
 }
 
-export const getError = (key, errCode) => {
+export const getError = (key, errCode, display) => {
   return {
     type: RECEIVE_ERROR,
     key,
-    errCode
+    errCode,
+    display
   }
 }
 
@@ -33,7 +34,7 @@ export const signUpUser = (user) => dispatch => {
               return dispatch(signUp(user.username))
             })
             .catch(err => {
-              return dispatch(getError("signup", err.response.status))
+              return dispatch(getError("signup", err.response.status, "username and/or email already exist"))
             })
 };
 
@@ -46,7 +47,7 @@ export const loginUser = (user) => dispatch => {
               return dispatch(checkAuthenticateStatus())
             })
             .catch(err => {
-              return dispatch(getError("login", err.response.status))
+              return dispatch(getError("login", err.response.status, "invalid credentials"))
             })
 }
 

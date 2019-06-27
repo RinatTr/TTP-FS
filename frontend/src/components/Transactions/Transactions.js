@@ -25,6 +25,7 @@ export default class Transactions extends Component {
     return (
       loggedUser
        ? <div>
+          <h2>Transactions</h2>
           {transactionsList}
          </div>
        : <p>please login</p>

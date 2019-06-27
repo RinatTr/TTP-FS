@@ -46,6 +46,7 @@ export default class Portfolio extends Component {
     return (
       loggedUser
        ? <div className="portfolio-wrapper">
+          <h2>Portfolio</h2>
           <ul>
             {portfolioList}
           </ul>

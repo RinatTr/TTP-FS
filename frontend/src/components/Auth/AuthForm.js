@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-
+import '../../css/AuthForm.css'
 
 class AuthForm extends Component {
   constructor() {
@@ -74,7 +74,7 @@ class AuthForm extends Component {
                   /> }
                  <button type="submit">{isPathLogin ? "SIGN IN" : "SIGN UP"}</button>
                  </form>
-                 { this.props.authError ? <p>* username and/or email already exist</p> : null}
+                 { authError ? <span>{authError.display}</span> : null}
                </div>
              </div>
        </React.Fragment>
