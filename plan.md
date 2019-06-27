@@ -19,8 +19,7 @@ all symbols: `/ref-data/symbols`
 
 
 todo:
-// update transactions to loggedinuser
-// fix signup
+// fix signup error
 // add styling
 
 //add sell functionality

@@ -66,7 +66,7 @@ export const logoutUser = () => dispatch => {
 export const checkAuthenticateStatus = () => dispatch => {
   return Util.isLoggedIn()
               .then(res => {
-                if (res.data.username === Auth.getToken()) {
+                if (res.data.username === Auth.getToken() && Auth.getToken()) {
                   Util.getUser(res.data.username)
                       .then(user => {
                         return dispatch(login({
