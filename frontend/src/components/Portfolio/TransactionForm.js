@@ -8,7 +8,7 @@ export default class TransactionForm extends Component {
     this.state = {
       symbol: "",
       amount: 0,
-      isValidSym: false,
+      isInvalidSym: false,
       lastSold: 0,
       isInsufficient: false
     }
@@ -24,17 +24,17 @@ export default class TransactionForm extends Component {
     e.preventDefault();
     Util.getLastSoldPrice(symbol).then(res => {
       this.setState({
-        isValidSym: res.data[0] ? true : false,
+        isInvalidSym: res.data[0] ? false : true,
         lastSold: res.data[0] ? res.data[0].price : 0
       }, this.buyShares)
     })
   }
 
   buyShares = () => {
-    let { amount, symbol, lastSold, isValidSym } = this.state;
+    let { amount, symbol, lastSold, isInvalidSym } = this.state;
     let { loggedUser } = this.props;
     let newBalance = loggedUser.balance - (amount * lastSold);
-    if (newBalance > 0 && isValidSym) {
+    if (newBalance > 0 && isInvalidSym) {
       let bodyObj = {
         userId: loggedUser.id,
         symbol: symbol.toUpperCase(),
@@ -53,7 +53,7 @@ export default class TransactionForm extends Component {
   }
 
   render() {
-    let { symbol, amount, isInsufficient } = this.state;
+    let { symbol, amount, isInsufficient, isInvalidSym } = this.state;
     let { loggedUser } = this.props;
     return(
       <React.Fragment>
@@ -77,7 +77,8 @@ export default class TransactionForm extends Component {
            />
          <button type="submit">buy</button>
         </form>
-        {isInsufficient ? "Insufficient Balance" : null}
+        {isInsufficient ? "*Insufficient balance" : null}
+        {isInvalidSym ? "*Invalid symbol" : null}
       </React.Fragment>
     )
   }
