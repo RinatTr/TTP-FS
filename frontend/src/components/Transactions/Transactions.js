@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Item } from './Item.js';
 import * as Util from '../../util/util.js';
+import '../../css/Transactions.css'
 
 export default class Transactions extends Component {
   constructor(){
@@ -24,7 +25,7 @@ export default class Transactions extends Component {
     let transactionsList = this.props.transactions.map((el,i) => <Item key={i} transaction={el} />)
     return (
       loggedUser
-       ? <div>
+       ? <div className="transactions-wrapper">
           <h2>Transactions</h2>
           {transactionsList}
          </div>
