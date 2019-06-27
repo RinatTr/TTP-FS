@@ -5,6 +5,7 @@ export const getUser = (username) => axios.get(`/api/users/${username}`)
 //Transactions
 export const getTransactions = (userId) => axios.get(`/api/transactions/user/${userId}`)
 export const getTotalShares = (userId) => axios.get(`/api/transactions/user/${userId}/total`)
+export const newTransaction = (userId, bodyObj) => axios.post(`/api/transactions/user/${userId}`, bodyObj)
 
 //Auth
 export const createUser = (bodyObj) => axios.post("/api/session/new", bodyObj)

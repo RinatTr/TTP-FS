@@ -37,11 +37,12 @@ export default class Portfolio extends Component {
   }
   render() {
     let { shares } = this.state;
+    let { loggedUser } = this.props;
     let portfolioList = shares.map((el,i) => <Item key={i} share={el} />)
     return (
       <React.Fragment>
         {portfolioList}
-        <TransactionForm />
+        <TransactionForm loggedUser={loggedUser} />
       </React.Fragment>
     )
   }
