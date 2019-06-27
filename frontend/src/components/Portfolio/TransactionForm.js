@@ -46,6 +46,7 @@ export default class TransactionForm extends Component {
       Util.newTransaction(loggedUser.id, bodyObj)
         .then(() => {
           this.setState({ isInsufficient: false })
+          window.location.reload();
         })
     } else if (isInvalidSym) {
       return;
