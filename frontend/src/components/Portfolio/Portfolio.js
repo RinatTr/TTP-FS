@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as Util from '../../util/util.js';
 import { Item } from './Item.js';
 import TransactionForm from './TransactionForm.js';
+import '../../css/Portfolio.css'
 
 export default class Portfolio extends Component {
   constructor() {
@@ -46,11 +47,15 @@ export default class Portfolio extends Component {
     return (
       loggedUser
        ? <div className="portfolio-wrapper">
-          <h2>Portfolio</h2>
-          <ul>
-            {portfolioList}
-          </ul>
+          <div className="portfolio-list">
+            <h2>Portfolio</h2>
+            <ul>
+              {portfolioList}
+            </ul>
+          </div>
+          <div className="transaction-wrapper">
           <TransactionForm loggedUser={loggedUser} />
+          </div>
         </div>
        : <p>please login</p>
     )

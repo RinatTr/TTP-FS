@@ -7,7 +7,7 @@ export default class TransactionForm extends Component {
     super(props)
     this.state = {
       symbol: "",
-      amount: 0,
+      amount: null,
       lastSold: 0,
       isInvalidSym: false,
       isInsufficient: false,
@@ -62,6 +62,7 @@ export default class TransactionForm extends Component {
     let { loggedUser } = this.props;
     return(
       <React.Fragment>
+        <h1>Make a Purchase</h1>
         <p>Your Balance: {loggedUser ? loggedUser.balance : null}</p>
         <form onSubmit={this.handleSubmit}>
           <input
