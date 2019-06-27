@@ -23,7 +23,7 @@ export default class Navbar extends Component {
             {` | `}
             <Link to="/portfolio">Portfolio</Link>
             {` | `}
-            <a onClick={this.handleClick}>Logout</a>
+            <a href={'/'} onClick={this.handleClick}>Logout</a>
           </div>
         </>
       : <>
