@@ -19,7 +19,6 @@ all symbols: `/ref-data/symbols`
 
 
 todo:
-// whole number validation
 // add color comparison
 // fix signup
 // add styling

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as Util from '../../util/util.js';
-//getLastSoldPrice(symbolsStr) //getOpenPrice(oneSymbol)
 import { Item } from './Item.js';
 import TransactionForm from './TransactionForm.js';
 
@@ -16,7 +15,7 @@ export default class Portfolio extends Component {
     this.setState({update: true})
   }
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.loggedUser !== prevProps.loggedUser || this.state.update !== prevState.update && this.props.loggedUser) {
+    if (this.props.loggedUser !== prevProps.loggedUser || (this.state.update !== prevState.update && this.props.loggedUser)) {
       Util.getTotalShares(this.props.loggedUser.id)
         .then(res => {
           let shares = res.data.data
@@ -24,16 +23,21 @@ export default class Portfolio extends Component {
         })
     }
   }
+
   calcLastSold = (shares) => {
-    let symbolsString = shares.map((el) => el.ticker_symbol).join(',')
-    Util.getLastSoldPrice(symbolsString)
+    let symbols = shares.map((el) => el.ticker_symbol)
+    Util.getOpenChained(symbols)
       .then(res => {
-        //res order matches the symbolsString order
-        shares.forEach((el,i) => el.last_sold = res.data[i].price)
-        this.setState({
-          shares: shares
-        })
+        shares.forEach((el,i) => el.open = res[i].data.open.price)
+        Util.getLastSoldPrice(symbols.join(','))
+          .then(res => {
+            shares.forEach((el,i) => el.last_sold = res.data[i].price)
+            this.setState({
+              shares: shares
+            })
+          })
       })
+
   }
   render() {
     let { shares } = this.state;

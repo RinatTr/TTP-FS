@@ -18,3 +18,13 @@ const prefix = "https://api.iextrading.com/1.0";
 export const getLastSoldPrice = (symbolStr) => axios.get(prefix+`/tops/last?symbols=${symbolStr}`)
 export const getOpenPrice = (symbol) => axios.get(prefix+`/stock/${symbol}/ohlc`)
 export const getAllSymbols = () => axios.get(prefix+`/ref-data/symbols`)
+export const getOpenChained = (symbolArr) => {
+  let promises = [];
+  symbolArr.forEach(symbol => {
+    let req = axios({
+      url: prefix+`/stock/${symbol}/ohlc`
+    })
+    promises.push(req)
+  })
+  return Promise.all(promises)
+}
