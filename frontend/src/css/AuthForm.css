@@ -13,14 +13,14 @@
   padding: 30px;
 }
 
-.auth-form-content form {
+form {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
 }
 
-.auth-form-content form input {
+form input {
   width: 392px;
   height: 25px;
   padding: 10px;
@@ -57,5 +57,5 @@
 .title {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
