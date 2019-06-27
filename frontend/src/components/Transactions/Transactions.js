@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import { Item } from './Item.js';
+import * as Util from '../../util/util.js';
 
 export default class Transactions extends Component {
   constructor(){
     super()
     this.state = {
-
+      update: false
     }
   }
 
   componentDidMount() {
-    this.props.getTransactions(1)
+    this.setState({update: true})
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.loggedUser !== prevProps.loggedUser || (this.state.update !== prevState.update && this.props.loggedUser)) {
+      this.props.getTransactions(this.props.loggedUser.id)
+    }
   }
   render() {
     let transactionsList = this.props.transactions.map((el,i) => <Item key={i} transaction={el} />)

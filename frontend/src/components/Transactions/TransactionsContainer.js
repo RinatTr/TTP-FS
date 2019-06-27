@@ -4,7 +4,8 @@ import { getTransactions } from '../../actions/TransactionsActions.js'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    transactions: state.transactions
+    transactions: state.transactions,
+    loggedUser: state.auth.loggedUser ? state.auth.loggedUser.userData : null
   };
 };
 
