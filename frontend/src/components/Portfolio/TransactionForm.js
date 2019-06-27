@@ -31,10 +31,10 @@ export default class TransactionForm extends Component {
   }
 
   buyShares = () => {
-    let { amount, symbol, lastSold } = this.state;
+    let { amount, symbol, lastSold, isValidSym } = this.state;
     let { loggedUser } = this.props;
     let newBalance = loggedUser.balance - (amount * lastSold);
-    if (newBalance > 0) {
+    if (newBalance > 0 && isValidSym) {
       let bodyObj = {
         userId: loggedUser.id,
         symbol: symbol.toUpperCase(),
