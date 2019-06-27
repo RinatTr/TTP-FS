@@ -25,7 +25,7 @@ export default class Portfolio extends Component {
     }
   }
   calcLastSold = (shares) => {
-    let symbolsString = shares.reduce((acc,el) => acc.ticker_symbol+","+el.ticker_symbol)
+    let symbolsString = shares.map((el) => el.ticker_symbol).join(',')
     Util.getLastSoldPrice(symbolsString)
       .then(res => {
         //res order matches the symbolsString order
