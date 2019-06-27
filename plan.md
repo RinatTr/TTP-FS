@@ -19,7 +19,7 @@ all symbols: `/ref-data/symbols`
 
 
 todo:
-// add color comparison
+// update transactions to loggedinuser
 // fix signup
 // add styling
 

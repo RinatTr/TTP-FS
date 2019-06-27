@@ -8,8 +8,9 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav>
-        <Link to="/transactions">transactions</Link>
-        <Link to="/portfolio">portfolio</Link>
+        <Link to="/transactions">Transactions</Link>
+        {` | `}
+        <Link to="/portfolio">Portfolio</Link>
       </nav>
     )
   }
