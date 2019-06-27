@@ -6,7 +6,7 @@ import { signUpUser, loginUser, logoutUser, checkAuthenticateStatus } from "../.
 const mapStateToProps = (state, ownProps) => {
   return {
     signedUpUser: state.auth.signedUpUser,
-    loggedInUser: state.auth.loggedUser,
+    loggedUser: state.auth.loggedUser,
     authError: state.auth.error
   };
 };

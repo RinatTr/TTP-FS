@@ -37,13 +37,11 @@ class AuthForm extends Component {
 
   render() {
     let { username, password, email } = this.state;
-    let userState = this.props.loggedInUser;
-    let isLoggedIn = userState ? userState.isLoggedIn : "";
-
+    let { loggedUser } = this.props;
     let isPathLogin = (this.props.match.path === "/auth/login");
 
     return (
-      isLoggedIn
+      loggedUser
       ? <Redirect to="/" />
       : <React.Fragment>
            <div className="auth-wrapper">

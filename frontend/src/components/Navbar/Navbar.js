@@ -5,13 +5,30 @@ export default class Navbar extends Component {
   componentDidMount() {
     this.props.checkAuthenticateStatus();
   }
+
+  handleClick = () => {
+    this.props.logoutUser()
+    window.location='/'
+  }
   render() {
+    let { loggedUser } = this.props;
     return (
       <nav>
-        <Link to="/transactions">Transactions</Link>
-        {` | `}
-        <Link to="/portfolio">Portfolio</Link>
-      </nav>
+      {loggedUser ?
+        <div>
+          <Link to="/transactions">Transactions</Link>
+          {` | `}
+          <Link to="/portfolio">Portfolio</Link>
+          {` | `}
+          <a onClick={this.handleClick}>Logout</a>
+        </div>
+      : <div>
+          <Link to="/auth/login">login</Link>
+            {` | `}
+          <Link to="/auth/signup">signup</Link>
+        </div>
+      }
+    </nav>
     )
   }
 }

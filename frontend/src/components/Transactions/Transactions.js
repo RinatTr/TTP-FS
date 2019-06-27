@@ -20,10 +20,15 @@ export default class Transactions extends Component {
     }
   }
   render() {
+    let { loggedUser } = this.props;
     let transactionsList = this.props.transactions.map((el,i) => <Item key={i} transaction={el} />)
     return (
       <React.Fragment>
+        {loggedUser ?
+        <div>
         {transactionsList}
+        </div>
+        : <p>please login</p>}
       </React.Fragment>
     )
   }

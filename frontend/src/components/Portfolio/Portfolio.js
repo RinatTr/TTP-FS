@@ -45,8 +45,12 @@ export default class Portfolio extends Component {
     let portfolioList = shares.map((el,i) => <Item key={i} share={el} />)
     return (
       <React.Fragment>
+        {loggedUser ?
+        <div>
         {portfolioList}
         <TransactionForm loggedUser={loggedUser} />
+        </div>
+        : <p>please login</p>}
       </React.Fragment>
     )
   }
