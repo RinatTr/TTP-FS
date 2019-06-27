@@ -34,7 +34,7 @@ export default class TransactionForm extends Component {
     let { amount, symbol, lastSold, isInvalidSym } = this.state;
     let { loggedUser } = this.props;
     let newBalance = loggedUser.balance - (amount * lastSold);
-    if (newBalance > 0 && isInvalidSym) {
+    if (newBalance > 0 && !isInvalidSym) {
       let bodyObj = {
         userId: loggedUser.id,
         symbol: symbol.toUpperCase(),
@@ -47,6 +47,8 @@ export default class TransactionForm extends Component {
         .then(() => {
           this.setState({ isInsufficient: false })
         })
+    } else if (isInvalidSym) {
+      return;
     } else {
       this.setState({ isInsufficient: true })
     }
@@ -77,8 +79,8 @@ export default class TransactionForm extends Component {
            />
          <button type="submit">buy</button>
         </form>
-        {isInsufficient ? "*Insufficient balance" : null}
-        {isInvalidSym ? "*Invalid symbol" : null}
+        {isInsufficient ? "* Insufficient balance" : null}
+        {isInvalidSym ? "* Invalid symbol" : null}
       </React.Fragment>
     )
   }
