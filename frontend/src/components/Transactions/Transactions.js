@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Item } from './Item.js';
-import * as Util from '../../util/util.js';
 import '../../css/Transactions.css'
 
 export default class Transactions extends Component {
