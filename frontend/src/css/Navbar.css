@@ -1,8 +1,14 @@
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 nav div {
   margin-right: 10px;
+}
+
+.username {
+  font-size: 20px;
+  color: white;
+  margin: 0px 0px 0px 5px;
 }

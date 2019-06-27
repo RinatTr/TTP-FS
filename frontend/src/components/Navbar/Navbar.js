@@ -16,18 +16,24 @@ export default class Navbar extends Component {
     return (
       <nav>
       {loggedUser ?
-        <div>
-          <Link to="/transactions">Transactions</Link>
-          {` | `}
-          <Link to="/portfolio">Portfolio</Link>
-          {` | `}
-          <a onClick={this.handleClick}>Logout</a>
-        </div>
-      : <div>
+        <>
+          <p className="username">{loggedUser.username}</p>
+          <div>
+            <Link to="/transactions">Transactions</Link>
+            {` | `}
+            <Link to="/portfolio">Portfolio</Link>
+            {` | `}
+            <a onClick={this.handleClick}>Logout</a>
+          </div>
+        </>
+      : <>
+          <div></div>
+          <div>
           <Link to="/auth/login">Login</Link>
             {` | `}
           <Link to="/auth/signup">Signup</Link>
-        </div>
+          </div>
+        </>
       }
     </nav>
     )
