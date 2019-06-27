@@ -45,8 +45,10 @@ export default class Portfolio extends Component {
     let portfolioList = shares.map((el,i) => <Item key={i} share={el} />)
     return (
       loggedUser
-       ? <div>
-          {portfolioList}
+       ? <div className="portfolio-wrapper">
+          <ul>
+            {portfolioList}
+          </ul>
           <TransactionForm loggedUser={loggedUser} />
         </div>
        : <p>please login</p>

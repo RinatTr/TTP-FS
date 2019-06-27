@@ -13,3 +13,16 @@
 a {
   color: #61dafb;
 }
+
+ul {
+  display: block;
+  list-style-type: none;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding-inline-start: 0px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+}
