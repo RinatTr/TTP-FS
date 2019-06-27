@@ -7,6 +7,9 @@ export const Item = ({share}) => {
     let shares = ` - ${share.total_shares} shares `
     let amount = (share.last_sold * share.total_shares).toFixed(2)
     return(
+      <>
       <li><div><span style={{color}}>{sym}</span>{shares}</div><span style={{color}}>{amount}</span></li>
+      <hr />
+      </>
     )
 }

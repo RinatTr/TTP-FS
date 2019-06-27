@@ -80,7 +80,7 @@ export default class TransactionForm extends Component {
             onChange={this.handleChange}
             required
            />
-         <button type="submit">buy</button>
+         <button type="submit">BUY</button>
         </form>
         {isInsufficient ? "* Insufficient balance" : null}
         {isInvalidSym ? "* Invalid symbol" : null}
