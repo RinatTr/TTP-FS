@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as Util from '../../util/util.js';
 //getLastSoldPrice(symbolsStr) //getOpenPrice(oneSymbol)
 import { Item } from './Item.js';
+import TransactionForm from './TransactionForm.js';
 
 export default class Portfolio extends Component {
   constructor() {
@@ -23,7 +24,6 @@ export default class Portfolio extends Component {
         })
     }
   }
-
   calcLastSold = (shares) => {
     let symbolsString = shares.reduce((acc,el) => acc.ticker_symbol+","+el.ticker_symbol)
     Util.getLastSoldPrice(symbolsString)
@@ -35,13 +35,13 @@ export default class Portfolio extends Component {
         })
       })
   }
-
   render() {
     let { shares } = this.state;
     let portfolioList = shares.map((el,i) => <Item key={i} share={el} />)
     return (
       <React.Fragment>
         {portfolioList}
+        <TransactionForm />
       </React.Fragment>
     )
   }
