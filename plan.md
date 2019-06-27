@@ -19,7 +19,6 @@ all symbols: `/ref-data/symbols`
 
 
 todo:
-// fix signup error
 // add styling
 
 //add sell functionality
