@@ -81,7 +81,7 @@ class AuthForm extends Component {
                   /> }
                  <button type="submit">{isPathLogin ? "LOG IN" : "SIGN UP"}</button>
                  </form>
-                 <p id="demo" className="demo-login" onClick={this.handleSubmit}>demo login</p>
+                 <div id="demo" className="demo-login" onClick={this.handleSubmit}>demo login</div>
                  { authError ? <span>{authError.display}</span> : null}
                </div>
              </div>

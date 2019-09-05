@@ -61,10 +61,11 @@ form input {
 }
 
 .demo-login {
+  display: inline-block;
   color: #292C35;
   text-decoration: underline;
   font-size: 12px;
-  margin-bottom: 0px;
+  margin-top: 5px;
 }
 
 .demo-login:hover {
