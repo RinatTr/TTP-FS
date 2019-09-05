@@ -59,3 +59,15 @@ form input {
   align-items: center;
   margin-bottom: 20px;
 }
+
+.demo-login {
+  color: #292C35;
+  text-decoration: underline;
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+
+.demo-login:hover {
+  color: #34D75F;
+  cursor: pointer;
+}
