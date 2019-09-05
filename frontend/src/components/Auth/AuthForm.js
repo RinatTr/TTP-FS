@@ -23,9 +23,11 @@ class AuthForm extends Component {
     e.preventDefault()
     let { username, password, email } = this.state;
     let newUser = { username, password, email }
-    let userLogin = { username, password }
+    let userLogin = e.target.id !== "demo"
+                  ? { username, password }
+                  : { username: "Lauren29",
+                      password: "1234" }
     let isLogin = ( this.props.match.path === "/auth/login" )
-
     if (isLogin) {
       this.props.loginUser(userLogin)
     } else {
